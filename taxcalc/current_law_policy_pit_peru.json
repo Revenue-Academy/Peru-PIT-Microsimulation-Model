@@ -1,4 +1,31 @@
 {
+    "_switch_flat_sch": {
+		"long_name": "PIT tax rate 1",
+		"description": "The lowest tax rate, applied to the portion of taxable income below tax bracket 1.",
+		"itr_ref": "Peru Tax Law",
+		"notes": "",
+		"row_var": "AYEAR",
+		"row_label": [
+			"2019"
+		],
+		"start_year": 2019,
+		"cpi_inflatable": false,
+		"cpi_inflated": false,
+		"col_var": "",
+		"col_label": "",
+		"boolean_value": false,
+		"integer_value": false,
+		"value": [
+			0
+		],
+		"range": {
+			"min": 0,
+			"max": 1
+		},
+		"out_of_range_minmsg": "",
+		"out_of_range_maxmsg": "",
+		"out_of_range_action": "stop"
+	},
 	"_rate1": {
 		"long_name": "PIT tax rate 1",
 		"description": "The lowest tax rate, applied to the portion of taxable income below tax bracket 1.",
