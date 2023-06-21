@@ -145,8 +145,8 @@ def net_income_div_cat2(income_div, ded_div, net_inc_div_cat2):
 
 "Calculation for tax base from capital income from first and second category"
 @iterate_jit(nopython=True)
-def tti_capital(net_inc_cat1, net_inc_nondiv_cat2, net_inc_div_cat2, tti_c):
-    tti_c = net_inc_cat1 + net_inc_nondiv_cat2 + net_inc_div_cat2
+def tti_capital(net_inc_cat1, net_inc_nondiv_cat2, switch_flat_sch, net_inc_div_cat2, tti_c):
+    tti_c = net_inc_cat1 + net_inc_nondiv_cat2 + net_inc_div_cat2*(1-switch_flat_sch)
     return tti_c
 
 '''
@@ -442,7 +442,7 @@ def cal_tti_capital(rate_tax_cat1, rate_tax_cat1_curr_law,
 "Calculation for PIT from capital"
 @iterate_jit(nopython=True)
 def cal_pit_c(rate_tax_cat1, rate_tax_cat2, rate_tax_div, tti_cat1_behavior, tti_cat2_behavior, tti_div_behavior, switch_flat_sch, pit_c):
-    pit_c = ((tti_cat1_behavior*rate_tax_cat1) + (tti_cat2_behavior*rate_tax_cat2) + (tti_div_behavior*rate_tax_div))*(1 - switch_flat_sch)
+    pit_c = (((tti_cat1_behavior*rate_tax_cat1) + (tti_cat2_behavior*rate_tax_cat2))*(1-switch_flat_sch) + (tti_div_behavior*rate_tax_div))
     return pit_c
 
 
